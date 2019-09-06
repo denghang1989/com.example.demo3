@@ -1,6 +1,7 @@
 package com.example.demo3.activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
@@ -43,7 +44,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Inject
     SpeechSynthesizer mSpeechSynthesizer;
 
-    private SupportFragment[] mFragments = new SupportFragment[4];
+    private SupportFragment[]    mFragments = new SupportFragment[4];
     private NetWorkChangReceiver netWorkChangReceiver;
 
     @Override
@@ -136,13 +137,14 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             public boolean onTabSelected(int position, boolean wasSelected) {
                 switch (position) {
                     case 0:
+                        mSpeechSynthesizer.speak("你好!");
                         showHideFragment(mFragments[FIRST]);
                         break;
                     case 1:
                         showHideFragment(mFragments[SECOND]);
                         break;
                     case 2:
-
+                        startActivity(new Intent(MainActivity.this, AppReactActivity.class));
                         break;
                     case 3:
 

@@ -6,6 +6,11 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.demo3.ioc.component.AppComponent;
 import com.example.demo3.ioc.component.DaggerAppComponent;
 import com.example.demo3.ioc.module.AppModule;
+import com.facebook.react.ReactApplication;
+import com.facebook.react.ReactNativeHost;
+import com.facebook.react.ReactPackage;
+import com.facebook.react.shell.MainReactPackage;
+import com.facebook.soloader.SoLoader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
@@ -15,10 +20,13 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 
+import java.util.Arrays;
+import java.util.List;
+
 import androidx.multidex.MultiDexApplication;
 import me.yokeyword.fragmentation.Fragmentation;
 
-public class App extends MultiDexApplication {
+public class App extends MultiDexApplication implements ReactApplication {
     private static App          mContext;
     private static AppComponent mAppComponent;
 
@@ -49,6 +57,7 @@ public class App extends MultiDexApplication {
         Fragmentation.builder().install();
         initARouter();
         mContext = this;
+        SoLoader.init(this,false);
     }
 
     private void initARouter() {
@@ -70,4 +79,23 @@ public class App extends MultiDexApplication {
     public static AppComponent getAppComponent() {
         return mAppComponent;
     }
+
+    @Override
+    public ReactNativeHost getReactNativeHost() {
+        return mReactNativeHost;
+    }
+
+    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+        @Override
+        public boolean getUseDeveloperSupport() {
+            return BuildConfig.DEBUG;
+        }
+
+        @Override
+        protected List<ReactPackage> getPackages() {
+            return Arrays.<ReactPackage>asList(new MainReactPackage());
+        }
+
+    };
+
 }
