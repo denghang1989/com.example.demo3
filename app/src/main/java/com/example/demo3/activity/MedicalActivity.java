@@ -6,7 +6,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.demo3.App;
 import com.example.demo3.R;
 import com.example.demo3.adapter.FragmentPagerItemAdapter;
-import com.example.demo3.base.BasePresentActivity;
+import com.example.demo3.base.BasePresenterActivity;
 import com.example.demo3.databinding.ActivityMedicalBinding;
 import com.example.demo3.entity.MedicalRecord;
 import com.example.demo3.ioc.component.DaggerActivityComponent;
@@ -18,7 +18,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 @Route(name = "medical", path = "/app/MedicalActivity")
-public class MedicalActivity extends BasePresentActivity<ActivityMedicalBinding, MedicalPresenter> implements MedicalContract.View {
+public class MedicalActivity extends BasePresenterActivity<ActivityMedicalBinding, MedicalPresenter> implements MedicalContract.View {
     private static final String TAG = "MedicalActivity";
 
     @Inject

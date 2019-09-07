@@ -5,7 +5,7 @@ import com.example.demo3.mvp.view.BaseView;
 
 import androidx.annotation.CallSuper;
 
-public abstract class BaseWebViewPresentFragment<P extends BasePresenter> extends BaseWebViewFragment implements BaseView {
+public abstract class BaseWebViewPresenterFragment<P extends BasePresenter> extends BaseWebViewFragment implements BaseView {
     protected P mPresenter;
 
     @CallSuper

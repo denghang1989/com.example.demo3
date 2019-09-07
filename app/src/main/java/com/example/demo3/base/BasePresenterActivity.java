@@ -6,7 +6,7 @@ import com.example.demo3.mvp.view.BaseView;
 import androidx.annotation.CallSuper;
 import androidx.databinding.ViewDataBinding;
 
-public abstract class BasePresentActivity<T extends ViewDataBinding, P extends BasePresenter> extends BaseActivity<T> implements BaseView {
+public abstract class BasePresenterActivity<T extends ViewDataBinding, P extends BasePresenter> extends BaseActivity<T> implements BaseView {
 
     protected P mPresenter;
 

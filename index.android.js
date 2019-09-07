@@ -1,26 +1,26 @@
 'use strict';
-import React from 'react';
-import {AppRegistry, StyleSheet} from 'react-native';
-import {Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text} from 'native-base';
+import React, { Component } from 'react';
+import {AppRegistry} from 'react-native';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 
-class HelloWorld extends React.Component {
+class HelloWorld extends Component {
     render() {
         return (
                 <Container>
                     <Header>
                         <Left>
                             <Button transparent>
-                                <Icon name='menu'/>
+                                <Icon name='menu' />
                             </Button>
                         </Left>
                         <Body>
                             <Title>Header</Title>
                         </Body>
-                        <Right/>
+                        <Right />
                     </Header>
                     <Content>
                         <Text>
-                            Hello world!
+                            This is Content Section
                         </Text>
                     </Content>
                     <Footer>
@@ -34,17 +34,5 @@ class HelloWorld extends React.Component {
         );
     }
 }
-
-var styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-    },
-    hello: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-});
 
 AppRegistry.registerComponent('HelloWorld', () => HelloWorld);

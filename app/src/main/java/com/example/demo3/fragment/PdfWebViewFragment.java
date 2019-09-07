@@ -1,11 +1,10 @@
 package com.example.demo3.fragment;
 
-import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.demo3.base.BaseWebViewPresentFragment;
+import com.example.demo3.base.BaseWebViewPresenterFragment;
 import com.example.demo3.mvp.contract.PdfWebviewContract;
 import com.example.demo3.mvp.presenter.PdfWebviewPresenter;
 
@@ -14,7 +13,7 @@ import java.io.File;
 import es.dmoral.toasty.Toasty;
 
 @Route(name = "pdfWeb", path = "/app/PdfWebViewFragment")
-public class PdfWebViewFragment extends BaseWebViewPresentFragment<PdfWebviewPresenter> implements PdfWebviewContract.View {
+public class PdfWebViewFragment extends BaseWebViewPresenterFragment<PdfWebviewPresenter> implements PdfWebviewContract.View {
     private static final String TAG = "PdfWebViewFragment";
 
     @Autowired(name = "pdfPath")
