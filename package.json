@@ -1,0 +1,30 @@
+{
+  "name": "rnappdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.android.js",
+  "scripts": {
+    "test": "no",
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denghang1989/com.example.demo3.git"
+  },
+  "keywords": [
+    "kanjian123"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denghang1989/com.example.demo3/issues"
+  },
+  "homepage": "https://github.com/denghang1989/com.example.demo3#readme",
+  "dependencies": {
+    "hermes-engine": "^0.1.1",
+    "native-base": "^2.13.8",
+    "react": "^16.9.0",
+    "react-native": "^0.60.5",
+    "react-native-vector-icons": "^6.6.0"
+  }
+}
