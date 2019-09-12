@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+project.ext.react = [
+        entryFile: "index.android.js"
+]
+
 android {
     compileSdkVersion 28
     buildToolsVersion "29.0.0"
@@ -54,7 +58,7 @@ android {
     }
 }
 
-def enableHermes = true
+def hermesPath = "../node_modules/hermes-engine/android/"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -129,13 +133,7 @@ dependencies {
 
     implementation "com.facebook.react:react-native:+"
 
-    if (enableHermes) {
-        def hermesPath = "../node_modules/hermes-engine/android/"
-        debugImplementation files(hermesPath + "hermes-debug.aar")
-        releaseImplementation files(hermesPath + "hermes-release.aar")
-    } else {
-        implementation 'org.webkit:android-jsc:+'
-    }
+    implementation files(hermesPath + "hermes-debug.aar")
 
 }
 

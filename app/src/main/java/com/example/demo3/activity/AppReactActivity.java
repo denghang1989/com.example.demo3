@@ -9,6 +9,6 @@ public class AppReactActivity extends ReactActivity {
     @Nullable
     @Override
     protected String getMainComponentName() {
-        return "HelloWorld";
+        return "App";
     }
 }
