@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Text, AppRegistry ,View} from 'react-native';
+import { Text, AppRegistry ,View,ToolbarAndroid} from 'react-native';
+import {Container} from 'native-base'
 
 export default class App extends Component {
   render() {
       return (
-              <Text>Hello world!</Text>
+            <Container>
+                <ToolbarAndroid/>
+            </Container>
       );
   }}
 

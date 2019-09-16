@@ -1,7 +1,6 @@
 package com.example.demo3.activity;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
@@ -17,8 +16,10 @@ import com.example.demo3.base.BaseActivity;
 import com.example.demo3.broadcast.NetWorkChangReceiver;
 import com.example.demo3.databinding.ActivityMainBinding;
 import com.example.demo3.event.QRCodeEvent;
+import com.example.demo3.fragment.BoardFragment;
 import com.example.demo3.fragment.CockpitFragment;
 import com.example.demo3.fragment.HomeFragment;
+import com.example.demo3.fragment.PanelFragment;
 import com.example.demo3.ioc.component.DaggerActivityComponent;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -69,7 +70,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
         mFragments[FIRST] = HomeFragment.newInstance();
         mFragments[SECOND] = CockpitFragment.newInstance();
-        loadMultipleRootFragment(R.id.content, 1, mFragments[FIRST], mFragments[SECOND]);
+        mFragments[THIRD] = BoardFragment.newInstance();
+        mFragments[FOURTH] = PanelFragment.newInstance();
+        loadMultipleRootFragment(R.id.content, 1, mFragments[FIRST], mFragments[SECOND],mFragments[THIRD],mFragments[FOURTH]);
     }
 
     @Override
@@ -144,10 +147,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
                         showHideFragment(mFragments[SECOND]);
                         break;
                     case 2:
-                        startActivity(new Intent(MainActivity.this, AppReactActivity.class));
+                        showHideFragment(mFragments[THIRD]);
                         break;
                     case 3:
-
+                        showHideFragment(mFragments[FOURTH]);
                         break;
                     default:
                 }

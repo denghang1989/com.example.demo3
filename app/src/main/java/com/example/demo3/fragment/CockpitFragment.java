@@ -28,7 +28,6 @@ public class CockpitFragment extends BaseWebViewFragment {
 
     @Override
     public void handler(String data, CallBackFunction function) {
-        // TODO: 2019-9-6
         Toasty.info(_mActivity,"jsToJava:"+data).show();
     }
 
