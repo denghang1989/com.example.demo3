@@ -63,7 +63,6 @@ public class PdfFragment extends BaseRecyclerViewPresenterFragment<PdfPresenter,
 
     @Override
     protected void initData() {
-        super.initData();
         mPresenter.downloadPdf(mPdfPath);
     }
 

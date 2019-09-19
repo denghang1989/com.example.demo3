@@ -41,9 +41,16 @@ public abstract class BaseRecyclerViewFragment<A extends BaseQuickAdapter> exten
 
     private void initRecyclerView() {
         RecyclerView.LayoutManager layoutManager = initLayoutManager();
+        if (layoutManager == null) {
+            layoutManager = defaultLayoutManager();
+        }
         mDataBinding.recyclerView.setLayoutManager(layoutManager);
         mDataBinding.recyclerView.addItemDecoration(new DividerItemDecoration(_mActivity, DividerItemDecoration.HORIZONTAL));
         mDataBinding.recyclerView.setAdapter(mAdapter);
+    }
+
+    protected RecyclerView.LayoutManager initLayoutManager() {
+        return null;
     }
 
     @Override
@@ -55,7 +62,7 @@ public abstract class BaseRecyclerViewFragment<A extends BaseQuickAdapter> exten
         mAdapter.setOnItemChildLongClickListener(this);
     }
 
-    protected RecyclerView.LayoutManager initLayoutManager() {
+    protected RecyclerView.LayoutManager defaultLayoutManager() {
         return new LinearLayoutManager(_mActivity);
     }
 

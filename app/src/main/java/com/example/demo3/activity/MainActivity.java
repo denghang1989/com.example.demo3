@@ -33,7 +33,7 @@ import io.reactivex.disposables.Disposable;
 import me.yokeyword.fragmentation.SupportFragment;
 
 @Route(path = "/app/mainActivity", name = "mainActivity")
-public class MainActivity extends BaseActivity<ActivityMainBinding> {
+public class MainActivity extends BaseActivity<ActivityMainBinding> implements AHBottomNavigation.OnTabSelectedListener{
 
     public static final int FIRST  = 0;
     public static final int SECOND = 1;
@@ -135,28 +135,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     @Override
     protected void initEvent() {
-        mDataBinding.bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
-            @Override
-            public boolean onTabSelected(int position, boolean wasSelected) {
-                switch (position) {
-                    case 0:
-                        mSpeechSynthesizer.speak("你好!");
-                        showHideFragment(mFragments[FIRST]);
-                        break;
-                    case 1:
-                        showHideFragment(mFragments[SECOND]);
-                        break;
-                    case 2:
-                        showHideFragment(mFragments[THIRD]);
-                        break;
-                    case 3:
-                        showHideFragment(mFragments[FOURTH]);
-                        break;
-                    default:
-                }
-                return true;
-            }
-        });
+        mDataBinding.bottomNavigation.setOnTabSelectedListener(this);
     }
 
     /**
@@ -169,6 +148,25 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         fragment.sendMessageToJs(event.code);
     }
 
+    @Override
+    public boolean onTabSelected(int position, boolean wasSelected) {
+        switch (position) {
+            case 0:
+                showHideFragment(mFragments[FIRST]);
+                break;
+            case 1:
+                showHideFragment(mFragments[SECOND]);
+                break;
+            case 2:
+                showHideFragment(mFragments[THIRD]);
+                break;
+            case 3:
+                showHideFragment(mFragments[FOURTH]);
+                break;
+            default:
+        }
+        return true;
+    }
 }
 
 

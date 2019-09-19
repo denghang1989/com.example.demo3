@@ -40,5 +40,6 @@ public class HomeFragment extends BaseRecyclerViewPresenterFragment<HomePresente
     @Override
     protected void initData() {
         super.initData();
+        showContent();
     }
 }
