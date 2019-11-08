@@ -9,13 +9,8 @@ import com.example.demo3.ioc.component.DaggerFragmentComponent;
 import com.example.demo3.mvp.contract.PanelContract;
 import com.example.demo3.mvp.presenter.PanelPresenter;
 
-import javax.inject.Inject;
-
 @Route(path = "/app/PanelFragment")
 public class PanelFragment extends BasePresenterFragment<FragmentPanelBinding, PanelPresenter> implements PanelContract.View {
-
-    @Inject
-    PanelPresenter mPresenter;
 
     @Override
     protected void inject() {
@@ -32,7 +27,9 @@ public class PanelFragment extends BasePresenterFragment<FragmentPanelBinding, P
     }
 
     @Override
-    protected PanelPresenter initPresenter() {
-        return mPresenter;
+    protected void initData() {
+        super.initData();
+        showContent();
     }
+
 }

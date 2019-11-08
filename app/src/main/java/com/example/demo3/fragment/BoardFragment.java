@@ -9,13 +9,9 @@ import com.example.demo3.ioc.component.DaggerFragmentComponent;
 import com.example.demo3.mvp.contract.BoardContract;
 import com.example.demo3.mvp.presenter.BoardPresenter;
 
-import javax.inject.Inject;
-
 @Route(path = "/app/BoardFragment")
 public class BoardFragment extends BasePresenterFragment<FragmentBoardBinding, BoardPresenter> implements BoardContract.View {
 
-    @Inject
-    BoardPresenter mPresenter;
 
     @Override
     protected void inject() {
@@ -31,8 +27,4 @@ public class BoardFragment extends BasePresenterFragment<FragmentBoardBinding, B
         return R.layout.fragment_board;
     }
 
-    @Override
-    protected BoardPresenter initPresenter() {
-        return mPresenter;
-    }
 }

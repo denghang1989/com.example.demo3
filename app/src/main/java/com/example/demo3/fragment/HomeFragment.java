@@ -13,9 +13,6 @@ import javax.inject.Inject;
 public class HomeFragment extends BaseRecyclerViewPresenterFragment<HomePresenter, PatientListAdapter> {
 
     @Inject
-    HomePresenter mPresenter;
-
-    @Inject
     PatientListAdapter mAdapter;
 
     public static HomeFragment newInstance() {
@@ -28,11 +25,6 @@ public class HomeFragment extends BaseRecyclerViewPresenterFragment<HomePresente
     }
 
     @Override
-    protected HomePresenter initPresent() {
-        return mPresenter;
-    }
-
-    @Override
     protected PatientListAdapter initAdapter() {
         return mAdapter;
     }
@@ -41,5 +33,10 @@ public class HomeFragment extends BaseRecyclerViewPresenterFragment<HomePresente
     protected void initData() {
         super.initData();
         showContent();
+    }
+
+    @Override
+    protected HomePresenter initPresent() {
+        return null;
     }
 }

@@ -72,7 +72,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements A
         mFragments[SECOND] = CockpitFragment.newInstance();
         mFragments[THIRD] = BoardFragment.newInstance();
         mFragments[FOURTH] = PanelFragment.newInstance();
-        loadMultipleRootFragment(R.id.content, 1, mFragments[FIRST], mFragments[SECOND],mFragments[THIRD],mFragments[FOURTH]);
+        loadMultipleRootFragment(R.id.content, 0, mFragments[FIRST], mFragments[SECOND],mFragments[THIRD],mFragments[FOURTH]);
     }
 
     @Override
@@ -115,7 +115,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements A
         mDataBinding.bottomNavigation.addItem(cockpit);
         mDataBinding.bottomNavigation.addItem(panel);
         mDataBinding.bottomNavigation.addItem(board);
-        mDataBinding.bottomNavigation.setNotification("1", 3);
     }
 
     private void initToolbar() {
