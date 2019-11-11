@@ -27,4 +27,8 @@ public class BoardFragment extends BasePresenterFragment<FragmentBoardBinding, B
         return R.layout.fragment_board;
     }
 
+    @Override
+    public void setSwipeBackEnable(boolean enable) {
+        super.setSwipeBackEnable(false);
+    }
 }

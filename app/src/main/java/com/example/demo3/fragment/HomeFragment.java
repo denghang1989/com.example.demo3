@@ -30,13 +30,12 @@ public class HomeFragment extends BaseRecyclerViewPresenterFragment<HomePresente
     }
 
     @Override
-    protected void initData() {
-        super.initData();
-        showContent();
+    protected HomePresenter initPresent() {
+        return null;
     }
 
     @Override
-    protected HomePresenter initPresent() {
-        return null;
+    public void setSwipeBackEnable(boolean enable) {
+        super.setSwipeBackEnable(false);
     }
 }

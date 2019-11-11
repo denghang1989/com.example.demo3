@@ -23,7 +23,6 @@ public class CockpitFragment extends BaseWebViewFragment {
     protected void initData() {
         super.initData();
         mWebView.loadUrl("http://192.168.199.22:57772/dthealth/web/scripts/dhemrjs/weui/demos/actionsheet.csp");
-        showContent();
     }
 
     @Override
@@ -35,5 +34,10 @@ public class CockpitFragment extends BaseWebViewFragment {
     public <E> void handleActivityResult(E e) {
         super.handleActivityResult(e);
         sendMessageToJs(e);
+    }
+
+    @Override
+    public void setSwipeBackEnable(boolean enable) {
+        super.setSwipeBackEnable(false);
     }
 }

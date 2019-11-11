@@ -28,8 +28,11 @@ public class PanelFragment extends BasePresenterFragment<FragmentPanelBinding, P
 
     @Override
     protected void initData() {
-        super.initData();
-        showContent();
+    }
+
+    @Override
+    public void setSwipeBackEnable(boolean enable) {
+        super.setSwipeBackEnable(false);
     }
 
 }

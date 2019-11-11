@@ -15,7 +15,6 @@ import com.example.demo3.R;
 import com.example.demo3.base.BaseActivity;
 import com.example.demo3.broadcast.NetWorkChangReceiver;
 import com.example.demo3.databinding.ActivityMainBinding;
-import com.example.demo3.event.QRCodeEvent;
 import com.example.demo3.fragment.BoardFragment;
 import com.example.demo3.fragment.CockpitFragment;
 import com.example.demo3.fragment.HomeFragment;
@@ -24,8 +23,6 @@ import com.example.demo3.ioc.component.DaggerActivityComponent;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import javax.inject.Inject;
 
@@ -54,9 +51,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements A
     }
 
     @Override
+    public void setSwipeBackEnable(boolean enable) {
+        super.setSwipeBackEnable(false);
+    }
+
+    @Override
     protected void init() {
-        super.init();
-        setSwipeBackEnable(false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions();
         }
@@ -137,15 +137,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements A
         mDataBinding.bottomNavigation.setOnTabSelectedListener(this);
     }
 
-    /**
-     * @param event
-     * @deprecated 监听二维码的变化
-     */
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void handleEvent(QRCodeEvent event) {
-        CockpitFragment fragment = findFragment(CockpitFragment.class);
-        fragment.sendMessageToJs(event.code);
-    }
 
     @Override
     public boolean onTabSelected(int position, boolean wasSelected) {

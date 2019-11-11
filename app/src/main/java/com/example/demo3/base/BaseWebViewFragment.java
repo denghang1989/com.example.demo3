@@ -59,7 +59,6 @@ public class BaseWebViewFragment extends BaseFragment<FragmentWebBinding> implem
             @Override
             public void onReceivedError(WebView webView, int i, String s, String s1) {
                 super.onReceivedError(webView, i, s, s1);
-                showError();
             }
         });
 
