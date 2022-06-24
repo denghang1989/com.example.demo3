@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/denghang1989/com.example.demo3#readme",
   "dependencies": {
-    "hermes-engine": "^0.1.1",
+    "hermes-engine": "^0.11.0",
     "native-base": "^2.13.8",
     "react": "^16.9.0",
     "react-native": "^0.60.5",
